@@ -61,26 +61,29 @@
     <!-- css files -->
     <link rel="stylesheet" href="assets/css/tailwind.css?v=3.3" />
     <link rel="stylesheet" href="assets/css/style.css?v=3.3" />
-    <link rel="stylesheet" href="src/output.css">
+    <link rel="stylesheet" href="src/output.css" />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
 
     <style>
-  @keyframes softGlow {
-    0% {
-      box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.6);
-    }
-    50% {
-      box-shadow: 0 0 10px 4px rgba(34, 197, 94, 0.9);
-    }
-    100% {
-      box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.6);
-    }
-  }
+      .glow-dot {
+        box-shadow: 0 0 0 rgba(235, 180, 0, 0.7);
+        animation: glowPulse 1.6s infinite ease-in-out;
+      }
 
-  .glow-dot {
-    animation: softGlow 1.6s ease-in-out infinite;
-  }
-</style>
+      @keyframes glowPulse {
+        0% {
+          box-shadow: 0 0 0 0 rgba(235, 180, 0, 0.7);
+        }
 
+        70% {
+          box-shadow: 0 0 0 6px rgba(235, 180, 0, 0);
+        }
+
+        100% {
+          box-shadow: 0 0 0 0 rgba(235, 180, 0, 0);
+        }
+      }
+    </style>
 
     <!-- google font -->
     <link
@@ -135,7 +138,6 @@
                     alt=""
                     class="w-36 md:block"
                   />
-                 
                 </a>
               </div>
             </div>
@@ -185,8 +187,6 @@
                   <nav
                     class="p-2 text-sm text-black font-normal dark:text-white"
                   >
-                    
-                   
                     <!-- <a href="../profile/"> -->
                     <a href="https://www.insiderone.in/app/settings/">
                       <div
@@ -214,7 +214,7 @@
                         Settings
                       </div>
                     </a>
-                    
+
                     <hr class="-mx-2 my-2 dark:border-gray-600/60" />
                     <a href="https://www.insiderone.in/app/logout/">
                       <div
@@ -277,7 +277,7 @@
       >
         <!-- sidebar inner -->
         <div
-          class="p-2 max-xl:bg-white shadow-sm 2xl:w-72 sm:w-64 w-[80%] h-[calc(100vh-64px)] relative z-30 max-lg:border-r dark:max-xl:bg-slate-700! dark:border-slate-700 bg-white bg-opacity-80"
+          class="p-2 max-xl:bg-white shadow-sm 2xl:w-72 sm:w-64 w-[80%] h-[calc(100vh-64px)] relative z-30 max-lg:border-r dark:border-slate-700 bg-white bg-opacity-80"
         >
           <div class="pr-4" data-simplebar>
             <nav id="side">
@@ -292,7 +292,7 @@
                     <span> Feed </span>
                   </a>
                 </li>
-               
+
                 <li onclick="toggleDropdown(this)">
                   <a href="javascript:void(0);">
                     <img
@@ -354,9 +354,8 @@
                     />
                     <span> Jobs & Internships </span>
                   </a>
-                 
                 </li>
-               
+
                 <li class="hidden! text-black" id="show__more">
                   <a href="javascript:void(0);">
                     <img
@@ -377,7 +376,7 @@
                     <span> InsiderOne Blogs</span>
                   </a>
                 </li>
-               
+
                 <li class="text-black" id="show__more">
                   <a href="https://www.insiderone.in/app/logout">
                     <img
@@ -389,8 +388,6 @@
                   </a>
                 </li>
               </ul>
-
-             
 
               <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
               <script>
@@ -413,8 +410,6 @@
                 }
               </script>
             </nav>
-
-           
           </div>
         </div>
         <!-- sidebar overly -->
@@ -436,74 +431,86 @@
         >
           <div class="flex-1">
             <div class="max-w-4xl mx-auto">
-              
-              <!-- Progress bar -->
-              <div class="grid grid-cols-1 md:grid-cols-3 gap-2 mb-2">
-                <div
-                  class="bg-white p-4 rounded-xl shadow-sm border1 dark:bg-dark2 col-span-2 relative"
-                >
-                  <!-- Header -->
-                  <div class="flex justify-between items-center mb-3">
-                    <div>
-                      <h3 class="text-lg font-bold">Profile Completion</h3>
-                      <p class="text-xs text-slate-500">
-                        Please complete your profile for better experience
-                      </p>
+              <!-- Progress bar starts here -->
+             
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-2 mb-2">
+                  <div
+                    class="bg-white p-4 rounded-xl shadow-sm border1 dark:bg-dark2 col-span-2 relative"
+                  >
+                    <!-- Header -->
+                    <div class="flex justify-between items-center mb-3">
+                      <div>
+                        <h3 class="text-lg font-bold">Profile Completion</h3>
+                        <p class="text-xs text-slate-500">
+                          Please complete your profile for better experience
+                        </p>
+                      </div>
+                      <span style="color: #ebb400" class="text-sm font-semibold"
+                        >50%</span
+                      >
                     </div>
-                    <span class="text-sm font-semibold text-amber-500"
-                      >50%</span
-                    >
-                  </div>
 
-                  <!-- Labels -->
-                  <div class="flex justify-between text-xs md:text-sm mb-2">
-                    <div class="text-green-600 text-left">Basic Info</div>
-                    <div class="text-green-600 text-center">Socials</div>
-                    <div class="text-green-600 text-center">About</div>
-                    <div class="text-gray-400 text-center">Experience</div>
-                    <div class="text-gray-400 text-center">Education</div>
-                    <div class="text-gray-400 text-right">Skills</div>
-                  </div>
-
-                  <!-- Progress bar -->
-                  <div class="relative mt-3">
-                    <!-- Full gray line -->
-                    <div
-                      class="border absolute left-0 right-0 top-1/2 h-0.75 bg-gray-600 rounded-full -translate-y-1/2"
-                    ></div>
-
-                    <!-- Active green line (progress) -->
-                    <div
-                      class="absolute left-0 top-1/2 h-0.75 bg-green-500 rounded-full -translate-y-1/2 transition-all duration-500"
-                      style="width: 50%"
-                    ></div>
-
-                    <!-- Dots -->
-                    <div class="relative flex justify-between">
-                      <div class="flex justify-start">
-                        <div class="h-3 w-3 bg-green-500 rounded-full"></div>
+                    <!-- Labels -->
+                    <div class="flex justify-between text-xs md:text-sm mb-2">
+                      <div style="color: #ebb400" class="text-left">
+                        Basic Info
                       </div>
-                      <div class="flex justify-center">
-                        <div class="h-3 w-3 bg-green-500 rounded-full"></div>
+                      <div style="color: #ebb400" class="text-center">
+                        Socials
                       </div>
-                      <div class="flex justify-center">
+                      <div style="color: #ebb400" class="text-center">
+                        About
+                      </div>
+                      <div class="text-gray-400 text-center">Experience</div>
+                      <div class="text-gray-400 text-center">Education</div>
+                      <div class="text-gray-400 text-right">Skills</div>
+                    </div>
+
+                    <!-- Progress bar -->
+                    <div class="relative mt-3">
+                      <!-- Full gray line -->
+                      <div
+                        style="background-color: #ebb400"
+                        class="absolute left-0 right-0 top-1/2 h-0.5 rounded-full -translate-y-1/2"
+                      ></div>
+
+                      <!-- Active progress line -->
+                      <div
+                        style="background-color: #ebb400"
+                        class="absolute left-0 top-1/2 h-0.5 rounded-full -translate-y-1/2 transition-all duration-500"
+                        style="width: 50%"
+                      ></div>
+
+                      <!-- Dots -->
+                      <div class="relative flex justify-between">
                         <div
-                          class="h-3 w-3 bg-green-500 rounded-full glow-dot"
+                          style="background-color: #ebb400"
+                          class="h-3 w-3 rounded-full"
                         ></div>
-                      </div>
-                      <div class="flex justify-center">
-                        <div class="h-3 w-3 bg-gray-600 rounded-full"></div>
-                      </div>
-                      <div class="flex justify-center">
-                        <div class="h-3 w-3 bg-gray-600 rounded-full"></div>
-                      </div>
-                      <div class="flex justify-end">
-                        <div class="h-3 w-3 bg-gray-600 rounded-full"></div>
+                        <div
+                          style="background-color: #ebb400"
+                          class="h-3 w-3 rounded-full"
+                        ></div>
+                        <div
+                          style="background-color: #ebb400"
+                          class="h-3 w-3 rounded-full glow-dot"
+                        ></div>
+                        <div
+                          style="background-color: gray"
+                          class="h-3 w-3 bg-gray-400 rounded-full"
+                        ></div>
+                        <div
+                          style="background-color: gray"
+                          class="h-3 w-3 rounded-full"
+                        ></div>
+                        <div
+                          style="background-color: gray"
+                          class="h-3 w-3 rounded-full"
+                        ></div>
                       </div>
                     </div>
                   </div>
                 </div>
-              </div>
 
               <!-- Row 1: header -->
               <div class="grid grid-cols-1 md:grid-cols-3 gap-2 mb-2">
